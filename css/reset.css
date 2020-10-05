@@ -1,0 +1,102 @@
+    /* 
+      @media (max-width: 575.98px) { ... } xs
+
+      // Small devices (landscape phones, 576px and up) sm
+      @media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+      // Medium devices (tablets, 768px and up) md
+      @media (min-width: 768px) and (max-width: 991.98px) { ... }
+
+      // Large devices (desktops, 992px and up) lg
+      @media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+      // Extra large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) { ... } 
+    */
+body {
+  background-color: #fefefe;
+}
+
+img {
+  width: 100%;
+}
+
+.navbar-brand img {
+  width: 126px;
+  height: 46px;
+}
+.header-item {
+  color: #33396b !important;
+  font-weight: 800;
+  font-size: 20px;
+  transform: skew(-15deg);
+}
+.container {
+  max-width: 1200px;
+}
+
+.custom-list {
+  height: 100%;
+}
+
+.custom-list li {
+  height: 25%;
+}
+
+.custom-list li.active {
+  color: #fff;
+  background-color: #373b6f;
+}
+
+.custom-list li:hover {
+  color: #fff;
+  background-color: #373b6f;
+}
+.custom-list li .sub-list {
+  font-size: 14px;
+}
+.custom-list li .sub-list img{
+  width: 20px;
+  height: 20px;
+}
+
+.card .text {
+  font-size: 14px;
+}
+.card .sub-text {
+  font-size: 12px;
+}
+.card .sub-text img {
+  width: 18px;
+}
+
+.course-card:hover {
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+.online-banner img {
+  width: 100%;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+.course-nav li a span {
+  cursor: pointer;
+  font-size: 14px;
+  color: #222;
+}
+
+.course-nav .course-title {
+  color: #666;
+  font-size: 14px;
+}
+
+.navbar-nav .active span{
+  border-bottom: 3px solid #000;
+}
+
+.course-nav .active span {
+  border-bottom: 2px solid #000;
+}
