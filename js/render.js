@@ -6,13 +6,16 @@ const IDS = {
   },
   COURSE: {
     MODULE: {
-      ID: 'course-module'
+      ID: 'course-module',
+      ID_PHONE: 'course-module-phone'
     },
     TIME: {
-      ID: 'course-time'
+      ID: 'course-time',
+      ID_PHONE: 'course-time-phone'
     },
     TYPE: {
-      ID: 'course-type'
+      ID: 'course-type',
+      ID_PHONE: 'course-type-phone'
     }
   }
 }
@@ -37,16 +40,20 @@ appendElement(IDS.COURSE.MODULE.ID, () => {
   setActive(IDS.COURSE.MODULE.ID)
 })
 
+appendElement(IDS.COURSE.MODULE.ID_PHONE, () => {}
+)
+
 // 渲染课程时间
 appendElement(IDS.COURSE.TIME.ID, () => {
   setActive(IDS.COURSE.TIME.ID)
-
 })
+
+appendElement(IDS.COURSE.TIME.ID_PHONE, () => {}
+)
 
 // 渲染课程类型
 appendElement(IDS.COURSE.TYPE.ID, () => {
   setActive(IDS.COURSE.TYPE.ID)
-
 })
 
 // $(document).ready(function () {

@@ -25,6 +25,10 @@ img {
   width: 126px;
   height: 46px;
 }
+.navbar .right .navbar-brand img {
+  width: 28px;
+  height: 28px;
+}
 .header-item {
   color: #33396b !important;
   font-weight: 800;
@@ -88,7 +92,7 @@ img {
   color: #222;
 }
 
-.course-nav .course-title {
+.course-title {
   color: #666;
   font-size: 14px;
 }
