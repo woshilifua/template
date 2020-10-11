@@ -1,4 +1,4 @@
-    /* 
+/* 
       @media (max-width: 575.98px) { ... } xs
 
       // Small devices (landscape phones, 576px and up) sm
@@ -21,7 +21,19 @@ img {
   width: 100%;
 }
 
-.navbar-brand img {
+.container {
+  min-height: calc(100vh - 112px);
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  line-height: 40px;
+  font-size: 14px;
+  background-color: #292929;
+}
+
+.navbar-brand .logo {
   width: 126px;
   height: 46px;
 }
@@ -59,7 +71,8 @@ img {
 .custom-list li .sub-list {
   font-size: 14px;
 }
-.custom-list li .sub-list img{
+
+.custom-list li .sub-list img {
   width: 20px;
   height: 20px;
 }
@@ -75,7 +88,7 @@ img {
 }
 
 .course-card:hover {
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
 
 .online-banner img {
@@ -97,10 +110,42 @@ img {
   font-size: 14px;
 }
 
-.navbar-nav .active span{
+.navbar-nav .active span {
   border-bottom: 3px solid #000;
 }
 
 .course-nav .active span {
   border-bottom: 2px solid #000;
+}
+
+.hot-live .left {
+  background-color: #fff;
+}
+
+.hot-live .left .card {
+  height: 100%;
+}
+
+.hot-live .left .item {
+  font-size: 12px;
+}
+.hot-live .left .item .date {
+  width: 55px;
+  background-color: #312727;
+}
+
+.hot-live .left .card .row {
+  height: 100%;
+}
+
+.course-list {
+  font-size: 14px;
+}
+
+.course-list li {
+  border-left: 1px solid #f1f1f1 !important;
+}
+
+.join img {
+  width: 18px;
 }

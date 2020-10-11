@@ -35,15 +35,3 @@ appendElement(IDS.COURSE.MODULE.ID_PHONE, () => {
 appendElement(IDS.COURSE.TIME.ID, () => {
   setActive(IDS.COURSE.TIME.ID, "li");
 });
-
-// 渲染课程时间 移动端
-appendElement(IDS.COURSE.TIME.ID_PHONE, () => {
-  const BUTTON_ID = `${IDS.COURSE.TIME.ID_BUTTON}`;
-  const ID = `${IDS.COURSE.TIME.ID_PHONE} a`;
-  triggleButton(BUTTON_ID, ID);
-});
-
-// 渲染课程类型
-appendElement(IDS.COURSE.TYPE.ID, () => {
-  setActive(IDS.COURSE.TYPE.ID, "li");
-});
