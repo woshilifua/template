@@ -29,7 +29,7 @@ export default {
       { name: "报告云解读", href: "./report.html" },
       { name: "超级互动课堂", href: "#" },
       { name: "在线大讲堂", href: "./online.html" },
-      { name: "线下课程", href: "#" },
+      { name: "线下课程", href: "./offline.html" },
       { name: "关于我们", href: "./about.html" },
     ],
   },
