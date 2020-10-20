@@ -27,7 +27,7 @@ export default {
       { name: "首页", href: "./index.html" },
       { name: "学院课程", href: "./course.html" },
       { name: "报告云解读", href: "./report.html" },
-      { name: "超级互动课堂", href: "#" },
+      { name: "超级互动课堂", href: "./vip.html" },
       { name: "在线大讲堂", href: "./online.html" },
       { name: "线下课程", href: "./offline.html" },
       { name: "关于我们", href: "./about.html" },
