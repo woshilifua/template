@@ -23,12 +23,23 @@ export default {
   "navbar-nav": {
     tmp:
       '<a class="nav-item nav-link header-item col text-center pl-0 pr-0" href="$href"><span class="pb-3">$name</span></a>',
+    dropdownTmp:
+      '<a class="nav-link dropdown-toggle header-item col text-center pl-0 pr-0 " href="#" id="$id" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">$name</a>',
+    dromdownItemStartTmp: '<div class="dropdown-menu" aria-labelledby="$id">',
+    dropdownItemTmp: '<a class="dropdown-item" href="$href">$name</a>',
     list: [
-      { name: "首页", href: "./index.html" },
-      { name: "学院课程", href: "./course.html" },
-      { name: "报告云解读", href: "./report.html" },
-      { name: "超级互动课堂", href: "./vip.html" },
-      { name: "在线大讲堂", href: "./online.html" },
+      { name: "首页", href: "./home.html" },
+      {
+        name: "在线课程",
+        id: "online-courses",
+        children: [
+          { name: "学院课程", href: "./course.html" },
+          { name: "报告云解读", href: "./report.html" },
+          { name: "超级互动课堂", href: "./vip.html" },
+          { name: "在线大讲堂", href: "./online.html" },
+        ],
+      },
+
       { name: "线下课程", href: "./offline.html" },
       { name: "关于我们", href: "./about.html" },
     ],

@@ -19,14 +19,31 @@ export function triggleButton(buttonId, id) {
 }
 
 export function appendElement(id, cb) {
-  const { tmp, list } = TMPS[id];
+  const {
+    tmp,
+    dropdownTmp,
+    dromdownItemStartTmp,
+    dropdownItemTmp,
+    list,
+  } = TMPS[id];
   let el = $(`#${id}`);
   let result = [];
   list.forEach((item) => {
-    const tmpStr = replaceHolder(tmp);
+    const currentTmp = item.children ? dropdownTmp : tmp;
+    const tmpStr = replaceHolder(currentTmp);
     Object.keys(item).forEach((key) => {
       tmpStr.replace(`$${key}`, item[key]);
     });
+    if (item.children) {
+      const subTmp = addDropItems(
+        dromdownItemStartTmp,
+        "</div>",
+        dropdownItemTmp,
+        item
+      );
+      tmpStr.append(subTmp);
+      tmpStr.addStartAndEnd('<span class="nav-item dropdown">', "</span>");
+    }
     result.push($(tmpStr.getStr()));
   });
   el.append(result);
@@ -34,6 +51,20 @@ export function appendElement(id, cb) {
     cb();
   }
 }
+
+const addDropItems = function (start, end, temp, item) {
+  start = start.replace("$id", item.id);
+  let result = start;
+  item.children.forEach((item) => {
+    const tmpStr = replaceHolder(temp);
+    Object.keys(item).forEach((key) => {
+      tmpStr.replace(`$${key}`, item[key]);
+    });
+    result += tmpStr.getStr();
+  });
+  result += end;
+  return result;
+};
 
 const replaceHolder = function (strTmp) {
   var str = strTmp;
@@ -43,8 +74,16 @@ const replaceHolder = function (strTmp) {
   function getStr() {
     return str;
   }
+  function append(subStr) {
+    str += subStr;
+  }
+  function addStartAndEnd(start, end) {
+    str = start + str + end;
+  }
   return {
     replace: replace,
     getStr: getStr,
+    append: append,
+    addStartAndEnd: addStartAndEnd,
   };
 };
