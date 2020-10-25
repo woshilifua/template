@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -75,19 +75,12 @@
                       <li data-target="#carousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
+                      <div th:each="course, stat: ${offlineList}" class="carousel-item" th:classappend="${stat.index eq 0} ? active: ''">
                         <img
                           class="d-block rounded"
                           style="width: 100%"
                           src="https://pic.pedata.cn/disknew/web_img/upload/202009/7454edba6a9b474a8f8b00fa020566a1.jpg"
-                          alt="First slide"
-                        />
-                      </div>
-                      <div class="carousel-item">
-                        <img
-                          class="d-block rounded"
-                          style="width: 100%"
-                          src="https://pic.pedata.cn/disknew/web_img/upload/202009/7454edba6a9b474a8f8b00fa020566a1.jpg"
+                          th:src="'https://pic.pedata.cn/'+${course.cultivateImg}"
                           alt="First slide"
                         />
                       </div>
@@ -129,27 +122,29 @@
         <div class="col-12 pt-4 pb-3">
           <h5 class="pb-0">最新课程</h5>
         </div>
-        <div class="col-12 col-md-6">
+        <div th:each="course, stat: ${offlineList}" class="col-12 col-md-6">
           <div class="card border-0">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img
                   src="https://pic.pedata.cn/disknew/web_img/upload/202009/350ecc87e3024923ab8dd8a0a07e838d.jpg"
+                  th:src="'https://pic.pedata.cn/'+${course.cultivateImg}"
                   class="card-img"
                   alt="..."
                 />
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">并购交易架构设计及案例分享</h5>
+                  <h5 class="card-title" th:text="${course.cultivateTitle}">并购交易架构设计及案例分享</h5>
                   <p class="card-text">
-                    <small class="text-muted">北京 2020-12-12</small>
+                    <small class="text-muted"><span th:text="${course.cultivateSite}">北京</span> <span th:text="${#dates.format(course.cultivateStartTime, 'YYYY-MM-dd')}">2020-12-12</span></small>
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
 
       <!-- 往期课程 -->

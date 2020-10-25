@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -61,11 +61,12 @@
                 <div class="col-12 col-md-8 pr-md-0">
                   <div class="carousel slide">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
+                      <div th:each="course, stat: ${onlineList}" class="carousel-item" th:if="${stat.index} < 5" th:classappend="${stat.index eq 0} ? active: ''">
                         <img
                           class="d-block rounded"
                           style="width: 100%"
                           src="https://pic.pedata.cn/disknew/web_img/upload/202009/7454edba6a9b474a8f8b00fa020566a1.jpg"
+                          th:src="'https://pic.pedata.cn/'+${course.cultivateImg}"
                           alt="First slide"
                         />
                       </div>
@@ -152,50 +153,25 @@
         <div class="col-12 pt-4 pb-3">
           <h5 class="pb-0">全部课程</h5>
         </div>
-        <div class="col-12 col-md-3">
+        <div th:each="course, stat: ${onlineList}" class="col-12 col-md-3">
           <div class="card course-card border-0">
             <img
               src="https://pic.pedata.cn/disknew/web_img/upload/202009/552aa76ef9e24780a6d7d253bc2cb82c.jpg"
+              th:src="'https://pic.pedata.cn/'+${course.cultivateImg}"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body p-3">
-              <h6 class="card-title">智能科技: 风雨兼程</h6>
-              <div class="text">
-                <span class="card-text">徐兴</span>
-                <span class="custom-card-text">普华永道中国合伙人</span>
+              <h6 class="card-title" th:text="${course.cultivateTitle}">智能科技: 风雨兼程</h6>
+              <div class="text" th:if="${not #lists.isEmpty(course.academyCultivateTeacherList)}">
+                <span class="card-text" th:text="${course.academyCultivateTeacherList[0].teacher.teacherCn}">徐兴</span>
+                <span class="custom-card-text"><span th:text="${course.academyCultivateTeacherList[0].teacher.teacherInCompany}">公司名称</span><span th:text="${course.academyCultivateTeacherList[0].teacher.teacherPosition}">中国合伙人</span></span>
               </div>
               <div class="sub-text mt-1">
                 <img src="img/icon/time.png" />
-                <span>2020-07-23</span>
+                <span th:text="${#dates.format(course.cultivateStartTime, 'YYYY-MM-dd')}">2020-07-23</span>
                 <img class="ml-2" src="img/icon/view.png" />
-                <span>1232</span>
-                <img class="ml-2" src="img/icon/comment.png" />
-                <span>求教</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-3">
-          <div class="card course-card border-0">
-            <img
-              src="https://pic.pedata.cn/disknew/web_img/upload/202009/552aa76ef9e24780a6d7d253bc2cb82c.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body p-3">
-              <h6 class="card-title">智能科技: 风雨兼程</h6>
-              <div class="text">
-                <span class="card-text">徐兴</span>
-                <span class="custom-card-text">普华永道中国合伙人</span>
-              </div>
-              <div class="sub-text mt-1">
-                <img src="img/icon/time.png" />
-                <span>2020-07-23</span>
-                <img class="ml-2" src="img/icon/view.png" />
-                <span>1232</span>
-                <img class="ml-2" src="img/icon/comment.png" />
-                <span>求教</span>
+                <span th:text="${course.visitsCountR}">1232</span>
               </div>
             </div>
           </div>
